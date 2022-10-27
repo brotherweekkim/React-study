@@ -7,6 +7,11 @@ class App extends React.Component {
     };
   }
 
+  handleSumit(event) {
+    event.preventDefault();
+    console.log('TODO: handleSubmit', this.state.searchKeyword);
+  }
+
   handleChangeInput(event) {
     // this.state.searchKeyword = event.target.value;
     // this.forceUpdate();
@@ -29,7 +34,7 @@ class App extends React.Component {
         <h2 className="container">검색</h2>
       </header>
       <div className="container">
-        <form id="search-form-view">
+        <form id="search-form-view" onSubmit={event => this.handleSumit(event)}>
           <input
             type="text"
             placeholder="검색어를 입력하세요"
@@ -38,7 +43,7 @@ class App extends React.Component {
             onChange = {event => this.handleChangeInput(event)}
           />
           {/* {this.state.searchKeyword.length > 0 ? <button type="reset" class="btn-reset"></button> : null} */}
-          {this.state.searchKeyword.length > 0 && <button type="reset" class="btn-reset"></button>}
+          {this.state.searchKeyword.length > 0 && <button type="reset" className="btn-reset"></button>}
         </form>
       </div>
     </>
