@@ -17,6 +17,12 @@ class App extends React.Component {
   }
 
   render() {
+    // let resetButton = null;
+
+    // if (this.state.searchKeyword.length > 0) {
+    //   resetButton = <button type="reset" class="btn-reset"></button>
+    // }
+
     return (
     <>
       <header>
@@ -31,7 +37,8 @@ class App extends React.Component {
             value={this.state.searchKeyword}
             onChange = {event => this.handleChangeInput(event)}
           />
-          <button type="reset" class="btn-reset"></button>
+          {/* {this.state.searchKeyword.length > 0 ? <button type="reset" class="btn-reset"></button> : null} */}
+          {this.state.searchKeyword.length > 0 && <button type="reset" class="btn-reset"></button>}
         </form>
       </div>
     </>
