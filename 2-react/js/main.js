@@ -43,11 +43,11 @@ class App extends React.Component {
     const searchKeyword = event.target.value
     // this.state.searchKeyword = event.target.value;
     // this.forceUpdate();
-    if (searchKeyword.length <= 0) {
+    if (searchKeyword.length <= 0 && this.state.submitted) {
       return this.handleReset();
     }
     this.setState({
-      searchKeyword: event.target.value
+      searchKeyword: searchKeyword
     });
   }
 
@@ -57,7 +57,7 @@ class App extends React.Component {
     // if (this.state.searchKeyword.length > 0) {
     //   resetButton = <button type="reset" class="btn-reset"></button>
     // }
-    searchForm = (<form id="search-form-view"
+    const searchForm = (<form id="search-form-view"
     onSubmit={event => this.handleSumit(event)}
     onReset={() => this.handleReset(event)}
     >
@@ -98,7 +98,6 @@ class App extends React.Component {
       </div>
     </>
     );
-
   }
 }
 
