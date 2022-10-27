@@ -3,8 +3,17 @@ class App extends React.Component {
     super();
 
     this.state = {
-      searchKeyword: "hello",
+      searchKeyword: "",
     };
+  }
+
+  handleChangeInput(event) {
+    // this.state.searchKeyword = event.target.value;
+    // this.forceUpdate();
+
+    this.setState({
+      searchKeyword: event.target.value
+    });
   }
 
   render() {
@@ -19,13 +28,14 @@ class App extends React.Component {
             type="text"
             placeholder="검색어를 입력하세요"
             autoFocus
-            value={this.state.searchKeyword} 
+            value={this.state.searchKeyword}
+            onChange = {event => this.handleChangeInput(event)}
           />
           <button type="reset" class="btn-reset"></button>
         </form>
       </div>
     </>
-    )
+    );
 
   }
 }
