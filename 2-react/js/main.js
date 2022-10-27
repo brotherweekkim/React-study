@@ -4,6 +4,7 @@ class App extends React.Component {
 
     this.state = {
       searchKeyword: "",
+      searchResult: [],
     };
   }
 
@@ -65,6 +66,11 @@ class App extends React.Component {
           {/* {this.state.searchKeyword.length > 0 ? <button type="reset" class="btn-reset"></button> : null} */}
           {this.state.searchKeyword.length > 0 && <button type="reset" className="btn-reset"></button>}
         </form>
+        <div className="content">
+          {this.state.searchResult.length > 0 ? (
+            <div>TODO: 검색 결과 목록 표시하기</div>
+          ) : <div className="empty-box">검색 결과가 없습니다.</div> }
+        </div>
       </div>
     </>
     );
